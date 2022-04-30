@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/email",
+  "sourceRoot": "libs/email/src",
+  "prefix": "ynot-careers",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/email"],
+      "options": {
+        "jestConfig": "libs/email/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/email/src/**/*.ts",
+          "libs/email/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

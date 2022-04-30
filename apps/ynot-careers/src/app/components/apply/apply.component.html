@@ -1,0 +1,140 @@
+<p-toast></p-toast>
+<div class="container applycontainer">
+  <form [formGroup]="applyForm" (ngSubmit)="onapplySubmit()">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        name="firstName"
+        formControlName="firstName"
+        class="form-control"
+        id="firstName"
+      />
+    </div>
+    <span
+      *ngIf="
+        !applyForm.controls.firstName.valid &&
+        applyForm.controls.firstName.touched
+      "
+      >frist Name required</span
+    >
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="email"
+        name="lastName"
+        formControlName="lastName"
+        class="form-control"
+        id="lastName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        class="form-control"
+        id="exampleInputEmail1"
+      />
+    </div>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        id="flexRadioDefault1"
+        name="gender"
+        value="male"
+        formControlName="gender"
+      />
+      <label class="form-check-label" for="flexRadioDefault1"> Male </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        id="flexRadioDefault2"
+        name="gender"
+        value="female"
+        formControlName="gender"
+      />
+      <label class="form-check-label" for="flexRadioDefault2"> Female </label>
+    </div>
+    <div class="mb-3">
+      <label for="payrate" class="form-label">Desired Annual Pay</label>
+      <input
+        type="number"
+        name="payrate"
+        formControlName="payRate"
+        required
+        class="form-control"
+        id="payrate"
+      />
+    </div>
+    <div class="mb-3" formGroupName="address">
+      <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input
+          type="text"
+          name="city"
+          formControlName="city"
+          class="form-control"
+          id="city"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="state" class="form-label">State</label>
+        <input
+          type="text"
+          name="state"
+          formControlName="state"
+          class="form-control"
+          id="state"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input
+          type="text"
+          name="country"
+          formControlName="country"
+          class="form-control"
+          id="country"
+        />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="skills" class="form-label">Skills</label>
+      <div formArrayName="skills">
+        <div *ngFor="let skill of skills.controls; let i = index">
+          <div [formGroupName]="i">
+            Skill Name :
+            <input type="text" formControlName="skill" />
+            exp:
+            <input type="number" formControlName="exp" />
+
+            <button
+              class="btn btn-danger"
+              type="button"
+              (click)="removeSkill(i)"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+      <p>
+        <button type="button" class="btn btn-primary" (click)="addSkills()">
+          Add Skill
+        </button>
+      </p>
+    </div>
+
+    <button [disabled]="!applyForm.valid" type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,122 @@
+<p-toast></p-toast>
+<div class="container">
+  <form (ngSubmit)="onJobSubmit()" #jobForm="ngForm">
+    <div class="mb-3">
+      <label for="JobTitle" class="form-label">Job Title</label>
+      <input
+        type="text"
+        ngModel
+        name="title"
+        class="form-control"
+        id="JobTitle"
+        name="title"
+        required
+        #title="ngModel"
+      />
+    </div>
+    <span class="p-error my-2" *ngIf="title.touched && title.invalid"
+      >Job Title is Required</span
+    >
+    <!-- <span class="p-error my-2" *ngIf="jobForm.controls.title.touched && jobForm.controls.title.invalid"
+      >Job Title is Required</span
+    > -->
+    <div class="mb-3">
+      <label for="descriptionTeaser" class="form-label"
+        >Description Teaser</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="descriptionTeaser"
+        name="descriptionTeaser"
+        ngModel
+        required
+        maxlength="200"
+        #descriptionTeaser="ngModel"
+      ></textarea>
+    </div>
+    <span
+      class="p-error my-2"
+      *ngIf="descriptionTeaser.touched && descriptionTeaser.invalid"
+      >Description Teaser is Required</span
+    >
+
+    <div class="mb-3">
+      <label for="jobDescription" class="form-label">Job Description</label>
+      <p-editor
+        id="jobDescription"
+        class="form-control"
+        name="description"
+        ngModel
+        required
+        [style]="{ height: '320px' }"
+        #description="ngModel"
+      ></p-editor>
+    </div>
+    <span
+      class="p-error my-2"
+      *ngIf="description.touched && description.invalid"
+      >Description is Required</span
+    >
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+
+      <p-dropdown
+        id="category"
+        [options]="categories"
+        optionLabel="name"
+        optionValue="id"
+        class="form-control"
+        name="category"
+        ngModel
+        required
+      ></p-dropdown>
+    </div>
+
+    <label for="type">Job Type</label>
+    <div class="mb-3">
+      <div *ngFor="let jobType of jobTypes" class="field-checkbox">
+        <p-radioButton
+          [inputId]="jobType.key"
+          name="hiringType"
+          [value]="jobType.type"
+          [(ngModel)]="defaultType"
+        ></p-radioButton>
+        <label [for]="jobType.key">{{ jobType.type }}</label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="location"
+        ngModel
+        required
+        #location="ngModel"
+      />
+    </div>
+    <span class="p-error my-2" *ngIf="location.touched && location.invalid"
+      >Location is Required</span
+    >
+    <div class="row">
+      <div class="mb-3">
+        <label for="categoryName" class="form-label"
+          >Display on Career site </label
+        ><br />
+        <p-inputSwitch
+          ngModel
+          name="display"
+          [(ngModel)]="defaultDisplay"
+        ></p-inputSwitch>
+      </div>
+    </div>
+    <div class="mb-3">
+      <button [disabled]="!jobForm.valid" type="submit" class="btn btn-success">
+        {{ editMode ? 'Update Job' : 'Add Job' }}
+      </button>
+    </div>
+  </form>
+</div>

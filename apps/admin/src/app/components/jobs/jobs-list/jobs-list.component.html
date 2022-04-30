@@ -1,0 +1,64 @@
+<p-toast></p-toast>
+<p-confirmDialog
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
+<button type="button" class="btn btn-primary" routerLink="add">Add Job</button>
+<div class="card">
+  <p-table
+    [value]="jobs"
+    [rowHover]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[5, 10, 25, 50]"
+    responsiveLayout="scroll"
+    [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="title">
+          Title <p-sortIcon field="title"></p-sortIcon>
+        </th>
+        <th pSortableColumn="category.name">
+          Category <p-sortIcon field="category"></p-sortIcon>
+        </th>
+        <th pSortableColumn="postedDate">
+          Date Posted <p-sortIcon field="postedDate"></p-sortIcon>
+        </th>
+        <th pSortableColumn="display">
+          Available on Site <p-sortIcon field="display"></p-sortIcon>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-job>
+      <tr>
+        <td>{{ job.title }}</td>
+        <td>{{ job.category.name }}</td>
+        <td>{{ job.postedDate | date }}</td>
+        <td>{{ job.display }}</td>
+        <td>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-warning mx-4"
+            (click)="editJob(job.id)"
+          ></button>
+          <!-- <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deleteJob(job.id)"
+          ></button> -->
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

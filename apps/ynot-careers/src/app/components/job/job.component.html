@@ -1,0 +1,59 @@
+<p-toast></p-toast>
+<div class="container jobcontainer" *ngIf="job">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2 class="jobTitle">{{ job.title }}</h2>
+      <div class="jobdetail">
+        <p>
+          <span>Category : </span>
+          <i class="bi bi-briefcase"></i>
+          {{ job.category.name }}
+        </p>
+        <p>
+          <span>Location : </span><i class="bi bi-pin-map"></i
+          >{{ job.location }}
+        </p>
+        <p>
+          <span>Job Type : </span><i class="bi bi-clock-history"></i
+          >{{ job.hiringType }}
+        </p>
+      </div>
+      <h4>Description</h4>
+      <div class="description">
+        <p [innerHtml]="job.description"></p>
+      </div>
+      <div class="job-actions">
+        <button type="button" class="btn btn-secondary" routerLink="apply">
+          Apply Now
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="subscribetosimilarjob">
+        <form>
+          <form #emailform="ngForm" (ngSubmit)="sharethisJobEmail()">
+            <div class="mb-3">
+              <h5>Share this Job</h5>
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                name="email"
+                ngModel
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

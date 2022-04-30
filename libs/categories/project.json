@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/categories",
+  "sourceRoot": "libs/categories/src",
+  "prefix": "ynot-careers",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/categories"],
+      "options": {
+        "jestConfig": "libs/categories/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/categories/src/**/*.ts",
+          "libs/categories/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

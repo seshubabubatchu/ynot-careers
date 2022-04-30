@@ -1,0 +1,31 @@
+.jobBlock {
+  border: 1px solid rgb(218, 211, 211);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+.jobTitleLink {
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: black;
+}
+.jobTitleLink:hover {
+  cursor: pointer;
+}
+.job-details {
+  margin-top: 15px;
+}
+.job-details span {
+  margin: 5px 10px;
+}
+.job-details span i {
+  margin-right: 4px;
+}
+.titleanchor:hover {
+  cursor: pointer;
+}
+.titleanchor {
+  text-decoration: none;
+  color: black;
+}

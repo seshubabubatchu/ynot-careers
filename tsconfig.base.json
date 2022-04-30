@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@ynot-careers/auth": ["libs/auth/src/index.ts"],
+      "@ynot-careers/candidates": ["libs/candidates/src/index.ts"],
+      "@ynot-careers/categories": ["libs/categories/src/index.ts"],
+      "@ynot-careers/email": ["libs/email/src/index.ts"],
+      "@ynot-careers/jobs": ["libs/jobs/src/index.ts"],
+      "@ynot-careers/users": ["libs/users/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

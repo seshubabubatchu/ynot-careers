@@ -1,0 +1,9 @@
+.w-full {
+  width: 100%;
+}
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+.p-error {
+  font-size: 12px;
+}

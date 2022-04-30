@@ -1,0 +1,77 @@
+<div class="container">
+  <!-- <div class="row">
+    <div class="col-md-3">facetts</div>
+    <div class="col-md-8 col-offset-1">
+      <section class="col jobBlock" *ngFor="let job of jobs">
+        <a class="jobTitleLink" (click)="navigateToJob(job.id)">
+          {{ job.title }}</a
+        >
+        <p class="job-details">
+          <span
+            ><i class="bi bi-briefcase"></i>
+            {{ job.category.name }}
+          </span>
+          <span><i class="bi bi-pin-map"></i>{{ job.location }}</span>
+          <span><i class="bi bi-clock-history"></i>{{ job.hiringType }}</span>
+        </p>
+        <p>{{ job.descriptionTeaser }}</p>
+      </section>
+    </div>
+  </div> -->
+  <div class="card">
+    <p-dataView
+      #dv
+      [value]="jobs"
+      [paginator]="true"
+      [rows]="9"
+      filterBy="title"
+      [sortField]="sortField"
+      [sortOrder]="sortOrder"
+      layout="list"
+    >
+      <ng-template pTemplate="header">
+        <div class="flex flex-column md:flex-row justify-content-between">
+          <p-dropdown
+            [options]="sortOptions"
+            placeholder="Sort By Date"
+            (onChange)="onSortChange($event)"
+            styleClass="mb-2 md:mb-0"
+          ></p-dropdown>
+          <span class="p-input-icon-left mb-2 md:mb-0">
+            <i class="pi pi-search"></i>
+            <input
+              type="search"
+              pInputText
+              placeholder="Search Jobs By Title"
+              (input)="dv.filter($event.target.value)"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template let-job pTemplate="listItem">
+        <div class="col-12">
+          <div class="product-list-item">
+            <div class="product-list-detail p-5">
+              <h3 class="product-name">
+                <a class="titleanchor" (click)="navigateToJob(job.id)">
+                  {{ job.title }}
+                </a>
+              </h3>
+              <p class="job-details">
+                <span
+                  ><i class="bi bi-briefcase"></i>
+                  {{ job.category.name }}
+                </span>
+                <span><i class="bi bi-pin-map"></i>{{ job.location }}</span>
+                <span
+                  ><i class="bi bi-clock-history"></i>{{ job.hiringType }}</span
+                >
+              </p>
+              <div class="product-description">{{ job.descriptionTeaser }}</div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </div>
+</div>

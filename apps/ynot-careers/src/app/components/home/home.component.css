@@ -1,0 +1,124 @@
+/* .banner-component img {
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+.banner-component .content {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+.content h2 {
+  color: red;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+} */
+.banner-component {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.banner-component img {
+  width: 100%;
+  background-color: red;
+}
+
+.banner-component .content {
+  position: absolute;
+  width: 100%;
+  background: rgba(104, 150, 230, 0.6);
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-component .content h2 {
+  color: white;
+  /* font-size: 2rem; */
+}
+.benefits .cardcc {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.benefits .cardcc img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.cardccontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.componentsection {
+  padding: 20px 0 20px 0;
+}
+.card-withsmall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 13px;
+}
+.card-withsmall h4 {
+  padding: 10px 0px 0px 10px;
+}
+.jtccontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+.jtcbtn {
+  padding: 14px 30px;
+  outline: none;
+  border: none;
+  background-color: white;
+  color: #00549a;
+  border-radius: 15px;
+}
+.homesearchjobs {
+  padding: 12px 30px;
+  background-color: #00549a;
+  color: white;
+  outline: none;
+  border: 2px solid white;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+@media screen and (max-width: 576px) {
+  .homesearchjobs {
+    margin-top: 0px;
+  }
+  .ltcimg {
+    height: 300px;
+  }
+}
+.homebannercontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "projects": {
+    "admin": "apps/admin",
+    "admin-e2e": "apps/admin-e2e",
+    "auth": "libs/auth",
+    "candidates": "libs/candidates",
+    "categories": "libs/categories",
+    "email": "libs/email",
+    "jobs": "libs/jobs",
+    "users": "libs/users",
+    "ynot-careers": "apps/ynot-careers",
+    "ynot-careers-e2e": "apps/ynot-careers-e2e"
+  }
+}

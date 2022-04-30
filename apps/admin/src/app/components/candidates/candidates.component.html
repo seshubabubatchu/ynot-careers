@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="row">
+    <p-table
+      #dt
+      [value]="allCandidates"
+      dataKey="id"
+      styleClass="p-datatable-customers"
+      [rowHover]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      responsiveLayout="scroll"
+      [paginator]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [filterDelay]="0"
+      [globalFilterFields]="[
+        'email',
+        'firstName',
+        'lastName',
+        'jobId.title',
+        'jobId.category.name'
+      ]"
+    >
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+          List of All Candidates
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              placeholder="Search"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <!-- <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th> -->
+          <th pSortableColumn="firstName">
+            <div class="flex justify-content-between align-items-center">
+              First Name
+              <p-sortIcon field="firstName"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="lastName">
+            <div class="flex justify-content-between align-items-center">
+              lastName
+              <p-sortIcon field="lastName"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="email">
+            <div class="flex justify-content-between align-items-center">
+              Mail Address
+              <p-sortIcon field="email"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="date">
+            <div class="flex justify-content-between align-items-center">
+              Date Applied
+              <p-sortIcon field="date"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="payRate">
+            <div class="flex justify-content-between align-items-center">
+              Pay Rate
+              <p-sortIcon field="payRate"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="jobId.category.name">
+            <div class="flex justify-content-between align-items-center">
+              Category
+              <p-sortIcon field="jobId.category.name"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="jobId.hiringType">
+            <div class="flex justify-content-between align-items-center">
+              Hiring Type
+              <p-sortIcon field="jobId.hiringType"></p-sortIcon>
+            </div>
+          </th>
+          <th style="width: 8rem"></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-candidate>
+        <tr class="p-selectable-row">
+          <!-- <td>
+            <p-tableCheckbox [value]="candidate"></p-tableCheckbox>
+          </td> -->
+          <td>
+            <span class="p-column-title">Name</span>
+            {{ candidate.firstName }}
+          </td>
+          <td>
+            <span class="p-column-title">Country</span>
+            <span class="image-text">{{ candidate.lastName }}</span>
+          </td>
+          <td>
+            <span class="p-column-title">Representative</span>
+            <span class="image-text">{{ candidate.email }}</span>
+          </td>
+          <td>
+            <span class="p-column-title">Date</span>
+            {{ candidate.date | date }}
+            <!-- {{candidate.date | date: 'MM/dd/yyyy'}} -->
+          </td>
+          <td>Rs.{{ candidate.payRate }}/-</td>
+          <td>
+            {{ candidate.jobId.category.name }}
+            <!-- <span class="p-column-title">Status</span> -->
+            <!-- <span [class]="'candidate-badge status-' + candidate.status">{{candidate.status}}</span> -->
+          </td>
+          <td>
+            {{ candidate.jobId.hiringType }}
+            <!-- <span class="p-column-title">Activity</span> -->
+            <!-- <p-progressBar [value]="candidate.activity" [showValue]="false"></p-progressBar> -->
+          </td>
+          <td style="text-align: center">
+            <button
+              pButton
+              type="button"
+              class="p-button-secondary"
+              icon="pi pi-cog"
+              (click)="openCandidatePopup(candidate.id)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="8">No candidates found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

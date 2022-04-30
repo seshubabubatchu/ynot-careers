@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #00549a;
+  /* background: rgba(104, 150, 230, 1); */
+
+  color: white;
+}
+.navbar a {
+  color: white;
+}
+.offcanvas-header,
+.offcanvas-body {
+  background-color: #00549a;
+}
+.navbrandlogo {
+  font-size: 40px;
+}

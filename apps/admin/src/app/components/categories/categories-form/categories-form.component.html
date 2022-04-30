@@ -1,0 +1,26 @@
+<p-toast></p-toast>
+<div class="container">
+  <form (ngSubmit)="onCategoryFormSubmit()" #categoryForm="ngForm">
+    <div class="row">
+      <div class="mb-3">
+        <label for="categoryName" class="form-label">Category Name</label>
+        <input
+          ngModel
+          required
+          minlength="3"
+          name="name"
+          type="text"
+          class="form-control"
+          id="categoryName"
+        />
+      </div>
+    </div>
+    <button
+      [disabled]="!categoryForm.valid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      {{ editMode ? ' Update Category' : 'Add Category' }}
+    </button>
+  </form>
+</div>

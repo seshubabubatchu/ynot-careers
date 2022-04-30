@@ -1,0 +1,42 @@
+<p-toast></p-toast>
+<div class="container">
+  <form (ngSubmit)="onUserFormSubmit()" #userForm="ngForm">
+    <div class="row">
+      <div class="mb-3">
+        <label for="categoryName" class="form-label">User Name</label>
+        <input
+          ngModel
+          required
+          minlength="3"
+          name="name"
+          type="text"
+          class="form-control"
+          id="categoryName"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3">
+        <label for="email" class="form-label">email</label>
+        <input
+          ngModel
+          required
+          minlength="3"
+          name="email"
+          type="text"
+          class="form-control"
+          id="email"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3">
+        <label for="categoryName" class="form-label">Admin </label><br />
+        <p-inputSwitch ngModel name="isAdmin"></p-inputSwitch>
+      </div>
+    </div>
+    <button [disabled]="!userForm.valid" type="submit" class="btn btn-primary">
+      {{ editMode ? ' Update user' : 'Add user' }}
+    </button>
+  </form>
+</div>

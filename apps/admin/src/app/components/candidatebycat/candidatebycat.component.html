@@ -1,0 +1,35 @@
+<div class="container" *ngIf="candidate">
+  <div class="row">
+    <div class="col-md-6">
+      <p>First Name : {{ candidate.firstName }}</p>
+      <p>Last Name : {{ candidate.lastName }}</p>
+      <p>Mail : {{ candidate.email }}</p>
+      <p>Gender : {{ candidate.gender }}</p>
+      <p>Desired Pay : {{ candidate.payRate }}</p>
+    </div>
+    <div class="col-md-6">
+      <p>Skills</p>
+      <p *ngFor="let skill of candidate.skills">
+        <span>{{ skill.skill }} with {{ skill.exp }} Experience</span>
+      </p>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Address</h5>
+      <p>City : {{ candidate.address.city }}</p>
+      <p>State : {{ candidate.address.state }}</p>
+      <p>Country : {{ candidate.address.country }}</p>
+    </div>
+    <div class="col-md-6">
+      <h5>Applied For</h5>
+      <p>Job Title: {{ candidate.jobId.title }}</p>
+      <p>Category : {{ candidate.jobId.category.name }}</p>
+      <p>Preferred Location : {{ candidate.jobId.location }}</p>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="scheduleInterview(candidate)">
+    Schedule Interview
+  </button>
+</div>

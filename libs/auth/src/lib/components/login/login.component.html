@@ -1,0 +1,72 @@
+<div class="loginComponent">
+  <div class="logincontainer">
+    <div class="col1">
+      <div class="brand">
+        <span>Y</span>
+        <span>N</span>
+        <span>O</span>
+        <span>T</span>
+      </div>
+    </div>
+    <div class="col2">
+      <form [formGroup]="loginForm" (ngSubmit)="loginformSubmit()">
+        <div class="mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              id="inputEmail3"
+            />
+          </div>
+          <span
+            class="p-error"
+            *ngIf="
+              !loginForm.controls.email.valid &&
+              loginForm.controls.email.touched
+            "
+            >Email Required</span
+          >
+        </div>
+        <div class="mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label"
+            >Password</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              id="inputPassword3"
+            />
+          </div>
+          <span
+            class="p-error"
+            *ngIf="
+              !loginForm.controls.password.valid &&
+              loginForm.controls.password.touched
+            "
+            >Password Required</span
+          >
+        </div>
+
+        <button
+          [disabled]="!loginForm.valid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Sign in
+        </button>
+        <p *ngIf="payload">
+          <span class="p-error" *ngIf="isSubmited && !payload.isAdmin"
+            >You Are Not Authorized</span
+          >
+        </p>
+        <p *ngIf="errormsg">
+          <span class="p-error">{{ errormsg.error }}</span>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
